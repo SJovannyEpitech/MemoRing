@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { ArrowDown } from "lucide-react";
 
 export function Hero() {
   return (
@@ -54,22 +55,36 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-text-dark mb-8 leading-[1.1]">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-text-dark mb-8 leading-[1.1] drop-shadow-md">
             Votre mémoire, <br />
-            <span className="text-brand">augmentée.</span>
+            <span className="text-brand drop-shadow-md">augmentée.</span>
           </h1>
-          <p className="text-xl md:text-2xl text-text-slate mb-10 leading-relaxed max-w-2xl mx-auto font-medium">
+          <p className="text-xl md:text-2xl text-text-slate mb-10 leading-relaxed max-w-2xl mx-auto font-medium drop-shadow-md">
             MemoRing combine une bague connectée élégante et une IA puissante pour capturer vos idées, transcrire vos conversations et vous rappeler ce qui compte vraiment.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button size="pill" className="text-lg px-10 py-6 h-auto shadow-xl shadow-brand/25 text-white">
-              Découvrir la plateforme
-            </Button>
-            <Button variant="glass" size="pill" className="text-lg px-10 py-6 h-auto bg-white/40 hover:bg-white/60 border-white/60">
-              Voir comment ça marche
-            </Button>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+            className="flex justify-center mt-8"
+          >
+            <motion.a
+              href="#product"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ 
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="flex flex-col items-center gap-2 text-brand hover:text-brand-dark transition-colors cursor-pointer group"
+            >
+              <span className="text-sm font-medium tracking-widest uppercase opacity-80 group-hover:opacity-100">Découvrir</span>
+              <div className="p-3 rounded-full bg-white/30 backdrop-blur-md border border-white/50 shadow-lg group-hover:bg-white/50 transition-all">
+                <ArrowDown className="w-6 h-6" />
+              </div>
+            </motion.a>
+          </motion.div>
         </motion.div>
       </div>
     </section>

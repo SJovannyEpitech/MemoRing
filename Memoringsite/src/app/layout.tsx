@@ -21,6 +21,7 @@ export default function RootLayout({
     <html lang="fr">
       <body
         className={`${plusJakartaSans.variable} antialiased font-sans`}
+        suppressHydrationWarning
       >
         {children}
       </body>

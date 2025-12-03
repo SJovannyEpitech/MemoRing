@@ -31,9 +31,7 @@ export function Navbar() {
             <Link href="#product" className="text-sm font-medium text-text-slate hover:text-brand transition-colors">
               Produit
             </Link>
-            <Link href="#ring" className="text-sm font-medium text-text-slate hover:text-brand transition-colors">
-              Bague
-            </Link>
+            
             <Link href="#how-it-works" className="text-sm font-medium text-text-slate hover:text-brand transition-colors">
               Comment ça marche
             </Link>
@@ -48,7 +46,7 @@ export function Navbar() {
           {/* CTA & Mobile Toggle */}
           <div className="flex items-center gap-4">
             <Button variant="default" size="sm" className="hidden md:inline-flex rounded-full px-6">
-              Essayer MemoRing
+              Votez MemoRing
             </Button>
             
             <button 
@@ -79,13 +77,7 @@ export function Navbar() {
               >
                 Produit
               </Link>
-              <Link 
-                href="#ring" 
-                className="text-lg font-medium text-text-dark py-2 border-b border-gray-100"
-                onClick={() => setIsOpen(false)}
-              >
-                Bague
-              </Link>
+             
               <Link 
                 href="#how-it-works" 
                 className="text-lg font-medium text-text-dark py-2 border-b border-gray-100"
@@ -108,7 +100,7 @@ export function Navbar() {
                 Sécurité
               </Link>
               <Button className="w-full mt-4 rounded-full">
-                Essayer MemoRing
+                Votez MemoRing
               </Button>
             </div>
           </motion.div>

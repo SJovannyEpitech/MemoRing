@@ -17,11 +17,8 @@ export function CTA() {
               Rejoignez les milliers d'utilisateurs qui ont choisi MemoRing pour ne plus jamais rien oublier.
             </p>
             <Button size="pill" className="bg-white text-brand hover:bg-white/90 text-lg px-10 h-14 font-bold shadow-xl">
-              Essayer MemoRing maintenant
+              Votez MemoRing
             </Button>
-            <p className="mt-6 text-white/60 text-sm">
-              30 jours d'essai gratuit • Pas de carte requise
-            </p>
           </div>
         </div>
       </div>
