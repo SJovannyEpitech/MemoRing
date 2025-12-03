@@ -11,7 +11,7 @@ export function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/hero.jpeg" 
+          src="/hero.png" 
           alt="MemoRing Hero Background" 
           fill 
           className="object-cover" 
