@@ -21,35 +21,6 @@ export function Footer() {
               La bague connectée qui augmente votre mémoire et simplifie votre vie quotidienne grâce à l'IA.
             </p>
           </div>
-          
-          <div>
-            <h4 className="font-bold text-white mb-4">Produit</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link href="#" className="hover:text-brand transition-colors">Fonctionnalités</Link></li>
-              <li><Link href="#" className="hover:text-brand transition-colors">La Bague</Link></li>
-              <li><Link href="#" className="hover:text-brand transition-colors">Tarifs</Link></li>
-              <li><Link href="#" className="hover:text-brand transition-colors">Télécharger l'app</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-white mb-4">Entreprise</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link href="#" className="hover:text-brand transition-colors">À propos</Link></li>
-              <li><Link href="#" className="hover:text-brand transition-colors">Blog</Link></li>
-              <li><Link href="#" className="hover:text-brand transition-colors">Carrières</Link></li>
-              <li><Link href="#" className="hover:text-brand transition-colors">Contact</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-white mb-4">Légal</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link href="#" className="hover:text-brand transition-colors">Confidentialité</Link></li>
-              <li><Link href="#" className="hover:text-brand transition-colors">CGU</Link></li>
-              <li><Link href="#" className="hover:text-brand transition-colors">Cookies</Link></li>
-            </ul>
-          </div>
         </div>
         
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
