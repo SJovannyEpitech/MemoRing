@@ -116,29 +116,7 @@ export function PlansShowcase() {
           </CardContainer>
         </div>
 
-        {/* Nouvelle section vidéo : Mise en situation */}
-        <div className="mt-24 max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-text-dark mb-4">
-              Mise en situation des deux forfaits
-            </h3>
-            <p className="text-text-slate text-lg">
-              Découvrez comment MemoRing s'adapte à votre quotidien, que vous choisissiez le plan Standard ou Plus.
-            </p>
-          </div>
 
-          <div className="relative w-full aspect-video rounded-[2rem] overflow-hidden shadow-2xl border border-gray-200 bg-gray-100">
-            <video 
-              className="w-full h-full object-cover" 
-              controls 
-              preload="metadata"
-              playsInline
-            >
-              <source src="https://res.cloudinary.com/ddvabefhf/video/upload/v1764791587/memoringsituation_mbf4iw.mp4" type="video/mp4" />
-              Votre navigateur ne supporte pas la lecture de vidéos.
-            </video>
-          </div>
-        </div>
       </div>
 
       <AnimatePresence>
