@@ -45,8 +45,15 @@ export function Navbar() {
 
           {/* CTA & Mobile Toggle */}
           <div className="flex items-center gap-4">
-            <Button variant="default" size="sm" className="hidden md:inline-flex rounded-full px-6">
-              Votez MemoRing
+            <Button 
+              variant="default" 
+              size="sm" 
+              className="hidden md:inline-flex rounded-full px-6"
+              asChild
+            >
+              <Link href="#vote">
+                Votez MemoRing
+              </Link>
             </Button>
             
             <button 
@@ -99,8 +106,10 @@ export function Navbar() {
               >
                 Sécurité
               </Link>
-              <Button className="w-full mt-4 rounded-full">
-                Votez MemoRing
+              <Button className="w-full mt-4 rounded-full" asChild>
+                <Link href="#vote" onClick={() => setIsOpen(false)}>
+                  Votez MemoRing
+                </Link>
               </Button>
             </div>
           </motion.div>

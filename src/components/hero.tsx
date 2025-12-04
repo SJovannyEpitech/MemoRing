@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowDown } from "lucide-react";
+import TextReveal from "@/components/text-reveal";
 
 export function Hero() {
   return (
@@ -49,24 +50,32 @@ export function Hero() {
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10 text-center">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-4xl mx-auto"
-        >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-text-dark mb-8 leading-[1.1] drop-shadow-md">
-            Votre mémoire, <br />
-            <span className="text-brand drop-shadow-md">augmentée.</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-text-slate mb-10 leading-relaxed max-w-2xl mx-auto font-medium drop-shadow-md">
-            MemoRing combine une bague connectée élégante et une IA puissante pour capturer vos idées, transcrire vos conversations et vous rappeler ce qui compte vraiment.
-          </p>
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-8">
+            <TextReveal 
+              as="h1"
+              text="Votre mémoire," 
+              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-text-dark leading-[1.1] drop-shadow-md justify-center"
+            />
+            <TextReveal 
+              as="h1"
+              text="augmentée." 
+              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-brand leading-[1.1] drop-shadow-md justify-center"
+              delay={0.5}
+            />
+          </div>
+          
+          <TextReveal 
+            as="p"
+            text="MemoRing combine une bague connectée élégante et une IA puissante pour capturer vos idées, transcrire vos conversations et vous rappeler ce qui compte vraiment."
+            className="text-xl md:text-2xl text-text-slate mb-10 leading-relaxed max-w-2xl mx-auto font-medium drop-shadow-md justify-center"
+            delay={0.8}
+          />
           
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
+            transition={{ delay: 1.5, duration: 1 }}
             className="flex justify-center mt-8"
           >
             <motion.a
@@ -85,7 +94,7 @@ export function Hero() {
               </div>
             </motion.a>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

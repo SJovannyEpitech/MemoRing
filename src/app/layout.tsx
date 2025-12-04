@@ -3,6 +3,8 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/smooth-scroll";
 import CustomCursor from "@/components/custom-cursor";
+import VoteBadge from "@/components/vote-badge";
+import ScrollProgress from "@/components/scroll-progress";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -44,8 +46,10 @@ export default function RootLayout({
         className={`${plusJakartaSans.variable} antialiased font-sans`}
         suppressHydrationWarning
       >
+        <ScrollProgress />
         <SmoothScroll />
         <CustomCursor />
+        <VoteBadge />
         {children}
       </body>
     </html>
