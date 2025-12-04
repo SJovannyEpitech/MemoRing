@@ -1,6 +1,57 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+
+function AutoPlayVideo({ src, label }: { src: string; label: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch((error) => {
+              console.log("Autoplay prevented:", error);
+            });
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(video);
+
+    return () => {
+      observer.unobserve(video);
+    };
+  }, []);
+
+  return (
+    <div className="group relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/50 bg-white/40 backdrop-blur-md transition-all duration-500 hover:shadow-brand/20 hover:-translate-y-1">
+      <div className="absolute top-6 left-6 z-10 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 text-white font-medium text-sm shadow-lg">
+        {label}
+      </div>
+      <div className="relative w-full aspect-video bg-gray-100">
+        <video
+          ref={videoRef}
+          className="w-full h-full object-cover pointer-events-none"
+          loop
+          muted
+          playsInline
+        >
+          <source src={src} type="video/mp4" />
+          Votre navigateur ne supporte pas la lecture de vidéos.
+        </video>
+      </div>
+    </div>
+  );
+}
 
 export function VideoSection() {
   return (
@@ -25,40 +76,16 @@ export function VideoSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Vidéo 1 */}
-            <div className="group relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/50 bg-white/40 backdrop-blur-md transition-all duration-500 hover:shadow-brand/20 hover:-translate-y-1">
-              <div className="absolute top-6 left-6 z-10 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 text-white font-medium text-sm shadow-lg">
-                Design 01
-              </div>
-              <div className="relative w-full aspect-video bg-gray-100">
-                <video 
-                  className="w-full h-full object-cover" 
-                  controls 
-                  preload="metadata"
-                  playsInline
-                >
-                  <source src="https://res.cloudinary.com/ddvabefhf/video/upload/v1764790227/Vid%C3%A9o_K_Bague_Tournante_Fond_Noir_ali1pd.mp4" type="video/mp4" />
-                  Votre navigateur ne supporte pas la lecture de vidéos.
-                </video>
-              </div>
-            </div>
+            <AutoPlayVideo 
+              src="https://res.cloudinary.com/ddvabefhf/video/upload/v1764790227/Vid%C3%A9o_K_Bague_Tournante_Fond_Noir_ali1pd.mp4"
+              label="Design 01"
+            />
 
             {/* Vidéo 2 */}
-            <div className="group relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/50 bg-white/40 backdrop-blur-md transition-all duration-500 hover:shadow-brand/20 hover:-translate-y-1">
-              <div className="absolute top-6 left-6 z-10 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 text-white font-medium text-sm shadow-lg">
-                Design 02
-              </div>
-              <div className="relative w-full aspect-video bg-gray-100">
-                <video 
-                  className="w-full h-full object-cover" 
-                  controls 
-                  preload="metadata"
-                  playsInline
-                >
-                  <source src="https://res.cloudinary.com/ddvabefhf/video/upload/v1764795632/Vid%C3%A9o_K_Bague_Or_Rotative_dwb3nt.mp4" type="video/mp4" />
-                  Votre navigateur ne supporte pas la lecture de vidéos.
-                </video>
-              </div>
-            </div>
+            <AutoPlayVideo 
+              src="https://res.cloudinary.com/ddvabefhf/video/upload/v1764795632/Vid%C3%A9o_K_Bague_Or_Rotative_dwb3nt.mp4"
+              label="Design 02"
+            />
           </div>
         </motion.div>
       </div>
