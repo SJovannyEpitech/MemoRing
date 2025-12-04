@@ -10,6 +10,12 @@ function AutoPlayVideo({ src, label }: { src: string; label: string }) {
     const video = videoRef.current;
     if (!video) return;
 
+    // Check for reduced motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches) {
+      return; // Don't autoplay if user prefers reduced motion
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -37,6 +43,14 @@ function AutoPlayVideo({ src, label }: { src: string; label: string }) {
       <div className="absolute top-6 left-6 z-10 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 text-white font-medium text-sm shadow-lg">
         {label}
       </div>
+      
+      {/* Overlay on hover */}
+      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex items-center justify-center pointer-events-none">
+        <span className="bg-white/90 backdrop-blur-sm text-text-dark px-6 py-2 rounded-full font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-lg">
+          Découvrir
+        </span>
+      </div>
+
       <div className="relative w-full aspect-video bg-gray-100">
         <video
           ref={videoRef}
